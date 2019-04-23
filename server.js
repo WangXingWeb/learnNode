@@ -6,6 +6,10 @@ http.createServer(function  (request,  response)  {
     if(request.url!=="/favicon.ico"){  //清除第2此访问
         var pathname=url.parse(request.url).pathname;
         pathname=pathname.replace(/\//,'');//替换掉前面的/
+        if(pathname==''){
+            pathname='index';
+        }
+        console.log(pathname);
         try{
             router[pathname](request,response);
         }catch(err){
@@ -14,7 +18,7 @@ http.createServer(function  (request,  response)  {
         }
 
 
-        //将风刀霜剑分开了多久撒了；看风景啊电视剧
+
     }
 }).listen(8000);
 console.log('Server  running  at  http://127.0.0.1:8000/');
