@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var  str  =  "hfdjskahf{jas}kdhf{jAs}jksahjkfsdy{wei}urwbFjrewnbxzmbz";
+    var  re  =  /{jas}/gi;//*表匹配前面的子表达式零次或多次,?表匹配前面的子表达式零次或一次
+    window.onload=function(){
+        alert(re.test(str));    //true表包含
+        alert(str.replace(re,"费劲"));
+    }
+</script>
+</html>

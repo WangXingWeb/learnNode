@@ -1,6 +1,7 @@
 var optfile=require('./optfile');
 var url=require('url');
 var querystring=require('querystring');
+var async=require('async');
 function  getRecall(req,res){
     res.writeHead(200,    {'Content-Type':    'text/html;    charset=utf-8'});
     function  recall(data){
@@ -19,6 +20,57 @@ module.exports={
         optfile.readfile('./views/login.html',recall);
     },
     zhuce:function(req,res){
+        /**
+        function exec(){
+            async.waterfall(
+                [
+                    function(done){
+                        ii=0;
+                        setInterval(function(){
+                            console.log("aaa="+new Date());
+                            ii++;
+                            if(ii==3){
+                                clearInterval(this);
+                                done(null,'one完毕');
+                            }
+                        },1000);
+                    },
+                    function(preValue,done){
+                        jj=0;
+                        setInterval(function(){
+                            console.log(preValue+"="+new Date());
+                            jj++;
+                            if(jj==3){
+                                clearInterval(this);
+                                done(null,preValue+',two完毕');
+                            }
+                        },1000);
+
+                    }
+                ],function(err,rs){
+                    console.log(err);
+                    console.log(rs);
+                }
+            )
+        }
+        exec();
+        ***/
+        var mysql      = require('mysql');
+        var connection = mysql.createConnection({
+            host     : 'localhost',
+            user     : 'root',
+            password : '123456',
+            database : 'test'
+        });
+
+        connection.connect();
+
+        connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+            if (error) throw error;
+            console.log('The solution is: ', results[0].solution);
+        });
+
+
         recall  =  getRecall(req,res);
         optfile.readfile('./views/register.html',recall);
     },
@@ -50,10 +102,20 @@ module.exports={
             console.log(post);
             post = querystring.parse(post);
             console.log(post.name);
+            function recall(data){
+                var dataStr = data.toString();
+                dataStr = dataStr.replace(/{name}/,post.name);
+                res.write(dataStr);
+                res.end('');//不写则没有http协议尾
+            }
+            optfile.readfile('./views/index.html',recall);
+            /**
             if(post.name=='xingzai'){
                 console.log('555');
+
                 that.index(req,res);
             }
+             */
         });
         console.log(post);
     }
