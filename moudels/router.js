@@ -59,16 +59,57 @@ module.exports={
         var connection = mysql.createConnection({
             host     : 'localhost',
             user     : 'root',
-            password : '123456',
-            database : 'test'
+            password : 'root',
+            database : 'LEARNNODE'
         });
 
         connection.connect();
-
+/**
         connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
             if (error) throw error;
             console.log('The solution is: ', results[0].solution);
+            console.log('The solution is: ', results[0]);
+            console.log('The solution is: ', results);
         });
+
+        var userAddSql = 'insert into user (uname,pwd) values(?,?)';
+        var param = ['88','88'];
+        connection.query(userAddSql,param,function(err,rs){
+            if(err){
+                console.log('insert err:',err.message);
+                return;
+            }
+            console.log('insert success');
+        });
+ */
+        connection.query('SELECT * from user where uname=?',['ccc'],function(err, rs) {
+            if (err) {
+                console.log('[query] - :'+err);
+                return;
+            }
+            console.log(rs);
+            for(var i=0;i<rs.length;i++){
+                console.log('The uname is: ', rs[i].uname);
+            }
+        });
+        connection.end(function(err){
+            if(err){
+                console.log(err.toString());
+                return;
+            }
+            console.log('[connection end] succeed!');
+            connection.query('SELECT * from user where uname=?',['ccc'],function(err, rs) {
+                if (err) {
+                    console.log('[query] - :'+err);
+                    return;
+                }
+                console.log(rs);
+                for(var i=0;i<rs.length;i++){
+                    console.log('The uname is: ', rs[i].uname);
+                }
+            });
+        });
+
 
 
         recall  =  getRecall(req,res);
