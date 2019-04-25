@@ -59,7 +59,7 @@ module.exports={
         var connection = mysql.createConnection({
             host     : 'localhost',
             user     : 'root',
-            password : 'root',
+            password : 'shan1104',
             database : 'LEARNNODE'
         });
 
@@ -71,7 +71,7 @@ module.exports={
             console.log('The solution is: ', results[0]);
             console.log('The solution is: ', results);
         });
-
+*/
         var userAddSql = 'insert into user (uname,pwd) values(?,?)';
         var param = ['88','88'];
         connection.query(userAddSql,param,function(err,rs){
@@ -81,8 +81,8 @@ module.exports={
             }
             console.log('insert success');
         });
- */
-        connection.query('SELECT * from user where uname=?',['ccc'],function(err, rs) {
+
+        connection.query('SELECT * from user where uname=?',['88'],function(err, rs) {
             if (err) {
                 console.log('[query] - :'+err);
                 return;
@@ -92,23 +92,7 @@ module.exports={
                 console.log('The uname is: ', rs[i].uname);
             }
         });
-        connection.end(function(err){
-            if(err){
-                console.log(err.toString());
-                return;
-            }
-            console.log('[connection end] succeed!');
-            connection.query('SELECT * from user where uname=?',['ccc'],function(err, rs) {
-                if (err) {
-                    console.log('[query] - :'+err);
-                    return;
-                }
-                console.log(rs);
-                for(var i=0;i<rs.length;i++){
-                    console.log('The uname is: ', rs[i].uname);
-                }
-            });
-        });
+
 
 
 
