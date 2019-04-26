@@ -1,3 +1,4 @@
+var fs = require("fs");
 var optfile=require('./optfile');
 var url=require('url');
 var querystring=require('querystring');
@@ -12,14 +13,33 @@ function  getRecall(req,res){
 }
 module.exports={
     index:function(req,res){
+        var readerStream = fs.createReadStream('./file/input.txt');
+        readerStream.setEncoding('UTF8');
+        var data = '';
+        readerStream.on('data', function(chunk) {
+            data += chunk;
+        });
+        var writerStream = fs.createWriteStream('./file/output.txt');
+        readerStream.on('end',function(){
+            writerStream.write(data,'UTF8');
+            writerStream.end();
+        });
+        writerStream.on('finish', function() {
+            console.log("写入完成。");
+        });
         recall  =  getRecall(req,res);
         optfile.readfile('./views/index.html',recall);
+    },
+    video:function(req,res){
+        recall  =  getRecall(req,res);
+        optfile.readfile('./views/video.html',recall);
     },
     login:function(req,res){
         recall=getRecall(req,res);
         optfile.readfile('./views/login.html',recall);
     },
     zhuce:function(req,res){
+        console.log(Process);
         /**
         function exec(){
             async.waterfall(
@@ -59,7 +79,7 @@ module.exports={
         var connection = mysql.createConnection({
             host     : 'localhost',
             user     : 'root',
-            password : 'shan1104',
+            password : 'root',
             database : 'LEARNNODE'
         });
 
@@ -82,7 +102,7 @@ module.exports={
             console.log('insert success');
         });
 
-        connection.query('SELECT * from user where uname=?',['88'],function(err, rs) {
+        connection.query('SELECT * from user where uid=?',['1'],function(err, rs) {
             if (err) {
                 console.log('[query] - :'+err);
                 return;
