@@ -8,9 +8,28 @@
     *{
         padding: 0;
         margin: 0;
+
     }
 </style>
 <body>
-<video src="../file/yuxiang.mp4" title="风景" controls="controls" loop="loop" autoplay="autoplay" style="width: 100%;"></video>
+
+<!--<video src="../file/yuxiang.mp4" title="风景" controls="controls" loop="loop" autoplay="autoplay" style="width: 100%;"></video>-->
 </body>
+<script>
+    window.onload=function () {
+        setTimeout(
+            mesgNotice()
+        ,2000)
+    }
+    function mesgNotice(){
+        if(window.Notification && Notification.permission !== "denied") {
+            Notification.requestPermission(function(status) {
+                var notice_ = new Notification('新的消息', { body: '您有新的消息'});
+                notice_.onclick = function() {//单击消息提示框，进入浏览器页面
+                    window.focus();
+                }
+            });
+        }
+    }
+</script>
 </html>
