@@ -3,6 +3,7 @@ var optfile=require('./optfile');
 var url=require('url');
 var querystring=require('querystring');
 var async=require('async');
+var connectSQL=require('./connectSQL');
 function  getRecall(req,res){
     res.writeHead(200,    {'Content-Type':    'text/html;    charset=utf-8'});
     function  recall(data){
@@ -35,11 +36,12 @@ module.exports={
         optfile.readfile('./views/video.html',recall);
     },
     login:function(req,res){
+        //connectSQL.insert([88,52]);
+        connectSQL.delect('88');
         recall=getRecall(req,res);
         optfile.readfile('./views/login.html',recall);
     },
     zhuce:function(req,res){
-        console.log(Process);
         /**
         function exec(){
             async.waterfall(
@@ -75,43 +77,6 @@ module.exports={
         }
         exec();
         ***/
-        var mysql      = require('mysql');
-        var connection = mysql.createConnection({
-            host     : 'localhost',
-            user     : 'root',
-            password : 'root',
-            database : 'LEARNNODE'
-        });
-
-        connection.connect();
-/**
-        connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
-            if (error) throw error;
-            console.log('The solution is: ', results[0].solution);
-            console.log('The solution is: ', results[0]);
-            console.log('The solution is: ', results);
-        });
-*/
-        var userAddSql = 'insert into user (uname,pwd) values(?,?)';
-        var param = ['88','88'];
-        connection.query(userAddSql,param,function(err,rs){
-            if(err){
-                console.log('insert err:',err.message);
-                return;
-            }
-            console.log('insert success');
-        });
-
-        connection.query('SELECT * from user where uid=?',['1'],function(err, rs) {
-            if (err) {
-                console.log('[query] - :'+err);
-                return;
-            }
-            console.log(rs);
-            for(var i=0;i<rs.length;i++){
-                console.log('The uname is: ', rs[i].uname);
-            }
-        });
 
 
 
