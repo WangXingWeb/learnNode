@@ -4,7 +4,7 @@ function OptPool(){
     this.pool = mysql.createPool({
         host: 'localhost',       //主机
         user: 'root',            //MySQL认证用户名
-        password: 'root',        //MySQL认证用户密码
+        password: 'shan1104',        //MySQL认证用户密码
         database: 'LEARNNODE',
         port: '3306'             //端口号
     });

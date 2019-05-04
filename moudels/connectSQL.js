@@ -4,7 +4,7 @@ module.exports={
         var connection = mysql.createConnection({
             host     : 'localhost',
             user     : 'root',
-            password : 'root',
+            password : 'shan1104',
             database : 'LEARNNODE'
         });
         connection.connect();

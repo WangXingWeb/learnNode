@@ -4,6 +4,9 @@ var url=require('url');
 var querystring=require('querystring');
 var async=require('async');
 var connectSQL=require('./connectSQL');
+var OptPool = require('./sqlpool');
+var events=require('./event');
+var  UserBean  =  require('./UserBean');
 function  getRecall(req,res){
     res.writeHead(200,    {'Content-Type':    'text/html;    charset=utf-8'});
     function  recall(data){
@@ -37,9 +40,21 @@ module.exports={
     },
     login:function(req,res){
         //connectSQL.insert([88,52]);
-        connectSQL.delect('88');
-        recall=getRecall(req,res);
-        optfile.readfile('./views/login.html',recall);
+        //connectSQL.delect('88');
+        //events.createEventfun();
+
+        //recall=getRecall(req,res);
+        //optfile.readfile('./views/login.html',recall);
+        user  =  new  UserBean();
+        user.eventEmit.once('zhuceSuc',function(uname,pwd){
+            res.write('注册成功');
+            console.log('传来uname:'+uname);
+            console.log('传来pwd:'+pwd);
+            user.login(req,res);
+            res.end('');
+
+        });//注册监听
+        user.zhuce(req,res);
     },
     zhuce:function(req,res){
         /**
@@ -77,6 +92,32 @@ module.exports={
         }
         exec();
         ***/
+        var optPool = new OptPool();
+        var pool = optPool.getPool();
+        pool.getConnection(function(err,conn){
+            //----插入
+            var userAddSql = 'insert into user (uname,pwd) values(?,?)';
+            var param = ['eee','eee'];
+            conn.query(userAddSql,param,function(err,rs){
+                if(err){
+                    console.log('insert err:',err.message);
+                    return;
+                }
+                console.log('insert success');
+                //conn.release(); //放回连接池
+            })
+            //查询
+            conn.query('SELECT * from user', function(err, rs) {
+                if (err) {
+                    console.log('[query] - :'+err);
+                    return;
+                }
+                for(var i=0;i<rs.length;i++){
+                    console.log(rs[i].uname);
+                }
+                conn.release(); //放回连接池
+            });
+        });
 
 
 
