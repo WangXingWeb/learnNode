@@ -3,15 +3,16 @@ var url=require('url');
 var fs=require('fs');
 var path=require('path');
 function staticRoot (staticPath,req,res) {
-
     var pathObj=url.parse(req.url,true);
     if(pathObj.pathname==='/'){
         pathObj.pathname+='views/index.html';
     }
     var filePath=path.join(staticPath,pathObj.pathname);
+    console.log(filePath);
     fs.readFile(filePath,'binary',function (err,fileContent) {
        if(err){
            console.log('404');
+           console.log('kkkk');
            res.writeHead(404,'not found');
            res.end('<h1>404 not found</h1>');
        }else{
@@ -24,7 +25,6 @@ function staticRoot (staticPath,req,res) {
 }
 var server=http.createServer(function (request,response) {
     if(request.url!=="/favicon.ico"){  //清除第2此访问
-        console.log(__dirname);
         staticRoot(__dirname,request,response);
     }
 });
