@@ -53,7 +53,8 @@ var server=http.createServer(function (request,response) {
     if(request.url!=="/favicon.ico"){  //清除第2此访问
         var pathObj=url.parse(request.url,true);
         var handleFn=routes[pathObj.pathname];
-
+        console.log(request.url);
+        console.log(pathObj);
         if(handleFn){
             request.query=pathObj.query;
             var body='';
@@ -66,8 +67,6 @@ var server=http.createServer(function (request,response) {
         }else{
             staticRoot(__dirname,request,response);
         }
-
-
     }
 });
 
