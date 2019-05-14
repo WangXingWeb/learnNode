@@ -1,1 +1,32 @@
-fdsf
+[2019-05-07 08:00:35,659] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android - sed: //tmp/temp/79h24ag03iXS/WebkitCorePalm//assets/widget/comp/swiper/imgView.css:﻿@charset: No such file or directory
+[2019-05-07 08:00:35,828] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android - dos2unix: converting file //tmp/temp/79h24ag03iXS/WebkitCorePalm//obfuscation.appcan to Unix format ...
+[2019-05-07 08:00:35,833] DEBUG Thread-40 //opt/local/sdksuit-core/output/logs//aaant10006-android - true
+[2019-05-07 08:00:35,838] DEBUG Thread-40 //opt/local/sdksuit-core/output/logs//aaant10006-android -
+[2019-05-07 08:00:35,851] DEBUG Thread-40 //opt/local/sdksuit-core/output/logs//aaant10006-android - false
+[2019-05-07 08:00:37,425] DEBUG Thread-40 //opt/local/sdksuit-core/output/logs//aaant10006-android - Updated local.properties
+[2019-05-07 08:00:37,450] DEBUG Thread-40 //opt/local/sdksuit-core/output/logs//aaant10006-android - Added file ./proguard-project.txt
+[2019-05-07 08:00:48,401] DEBUG Thread-40 //opt/local/sdksuit-core/output/logs//aaant10006-android - rewriter---currentFile: /private/tmp/temp/79h24ag03iXS/WebkitCorePalm/.
+[2019-05-07 08:00:48,403] DEBUG Thread-40 //opt/local/sdksuit-core/output/logs//aaant10006-android - rewriter---pluginsPath: /private/tmp/temp/79h24ag03iXS/79h24ag03iXS
+[2019-05-07 08:00:48,423] DEBUG Thread-40 //opt/local/sdksuit-core/output/logs//aaant10006-android - rewriter---p.waitFor(): 0
+[2019-05-07 08:00:48,823] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android -
+[2019-05-07 08:00:48,825] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android - FAILURE: Build failed with an exception.
+[2019-05-07 08:00:48,825] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android -
+[2019-05-07 08:00:48,825] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android - * What went wrong:
+[2019-05-07 08:00:48,825] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android - A problem occurred configuring root project 'WebkitCorePalm'.
+[2019-05-07 08:00:48,825] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android - > Could not resolve all dependencies for configuration ':classpath'.
+[2019-05-07 08:00:48,825] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android -    > Could not find com.android.tools.build:gradle:2.3.0.
+[2019-05-07 08:00:48,825] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android -      Searched in the following locations:
+[2019-05-07 08:00:48,826] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android -          file:/opt/local/share/gradle/m2repository/com/android/tools/build/gradle/2.3.0/gradle-2.3.0.pom
+[2019-05-07 08:00:48,826] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android -          file:/opt/local/share/gradle/m2repository/com/android/tools/build/gradle/2.3.0/gradle-2.3.0.jar
+[2019-05-07 08:00:48,826] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android -      Required by:
+[2019-05-07 08:00:48,826] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android -          :WebkitCorePalm:unspecified
+[2019-05-07 08:00:48,826] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android -
+[2019-05-07 08:00:48,826] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android - * Try:
+[2019-05-07 08:00:48,826] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android - Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+[2019-05-07 08:00:48,827] DEBUG Thread-40 //opt/local/sdksuit-core/output/logs//aaant10006-android -
+[2019-05-07 08:00:48,827] DEBUG Thread-40 //opt/local/sdksuit-core/output/logs//aaant10006-android - BUILD FAILED
+[2019-05-07 08:00:48,827] DEBUG Thread-40 //opt/local/sdksuit-core/output/logs//aaant10006-android -
+[2019-05-07 08:00:48,827] DEBUG Thread-40 //opt/local/sdksuit-core/output/logs//aaant10006-android - Total time: 10.587 secs
+[2019-05-07 08:00:50,000] DEBUG Thread-39 //opt/local/sdksuit-core/output/logs//aaant10006-android - cp: //tmp/temp/79h24ag03iXS/WebkitCorePalm//build/outputs/apk/WebkitCorePalm-release-unsigned.apk: No such file or directory
+[2019-05-07 08:00:51,269] DEBUG Thread-42 //opt/local/sdksuit-core/output/logs//aaant10006-android - jarsigner: 无法打开 jar 文件: //tmp/temp/79h24ag03iXS/widgetone.apk
+[2019-05-07 08:00:51,335] DEBUG Thread-43 //opt/local/sdksuit-core/output/logs//aaant10006-android - Unable to open '//tmp/temp/79h24ag03iXS/widgetone.apk' as zip archive
