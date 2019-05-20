@@ -1,7 +1,7 @@
 /**
  * Created by xingzai on 2019/5/9.
  */
-<<<<<<< HEAD
+
 var express=require('./lib/express');
 var path=require('path');
 var bodyParser=require('./lib/body-parser');
@@ -46,7 +46,7 @@ app.use(function (req,res) {
 });
 
 module.exports=app;
-=======
+
 var express=require('express');
 var app =express();
 //设置跨域访问
@@ -83,4 +83,4 @@ var server = app.listen(9000, function () {
 
     console.log('Example app listening at http://%s:%s', host, port);
 });
->>>>>>> 9969f395cd4f45354b69cafe6c949d3fb3e7e180
+
